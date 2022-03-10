@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+<input type="button" value="Submit" id="login">
+
+<script>
+$(document).ready(function(){
+  $("#login").click(function(  ){
+    
+//	alert ('test');
+	$.ajax({
+            
+			url:"http://127.0.0.1:8003/api/v1/journal/create",
+      method: "POST",
+			async: true,
+			cache:  false,
+      data: '{"journalcode":"0111","journaldate":"2019-12-29", "referenceid":"0111",   "note":"journal 0111",   "detail":[{       "trandetail":"journal", "accid":"sWjoEk6vQMASCHCIJ7Kb", "description":"bank101", "amounttype":"Dollar", "amount":"900", "trantype":"Dr"}, { "trandetail":"journal", "accid":"iJmLiWic9xwvdpMDXk4F",  "description":"bank009", "amounttype":"Dollar", "amount":"900", "trantype":"Cr" } ]}}',
+			dataType: "json",
+            success: function (data) {
+				
+                $(".display").html("Ok");
+            },
+			
+			error: function (msg){
+			 $(".display").html("Error");
+			},
+			headers: { 'authorization': 'Bearer 4antvAfIBY2SwwcIfKW4UVlWGXsNpJtxCdXWoZju8azwEpF5by0ZXaetVIXK' }
+        });
+	
+	
+	
+  });
+});
+</script>
+</head>
+<body>
+
+
+  <input type="button" value="Submit" id="login">
+ 
+
+
+
+
+</body>
+</html>

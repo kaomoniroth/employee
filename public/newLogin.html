@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+<body>
+<div class="display">
+------
+    </div>
+
+    <input type="button" value="Submit" id="login">
+
+<script>
+$(document).ready(function(){
+  $("#login").click(function(  ){
+	
+	
+	$.ajax({
+            url:"http://116.212.149.147:8001/api/v1/auth/login",
+            type: "POST",
+            async: false,
+            data: '{"email":"administrator@gmail.com", "password":"password"}',
+            
+            success: function (data) {
+				
+                $(".display").html(data);
+            },
+			
+			error: function (msg){
+			 $(".display").html(msg);
+			}
+
+    
+    });
+	  return false;
+  });
+});
+</script>
+</body>
+</html>

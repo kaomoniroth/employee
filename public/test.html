@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+<body>
+<div class="display">
+------
+    </div>
+
+
+
+
+
+<script>
+$(document).ready(function(){
+ 
+    
+	//url?api_token
+	// url:"http://127.0.0.1:8003/api/v1/chartacc/list/1?api_token=E3hN6ailSHVyFAt3mRqYbIjhkdWzuhnD8hYUtAhxeJTd0WveY79dQRColhro",
+	
+	$.ajax({
+            url:"http://116.212.149.147:8001/api/v1/acctype/1/chartaccount?api_token=mI15eRralGR4tFqo5WhxOyXmsbKnFeUsyVjCnY8PHJGub24QntNSVRn8Lx2s",
+            type: "GET",
+			async: false,
+            
+            success: function (data) {
+				
+                $(".display").html(data);
+            },
+			
+			error: function (msg){
+			 $(".display").html(msg);
+			}
+        });
+	
+	
+  
+});
+</script>
+</body>
+</html>
